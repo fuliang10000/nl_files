@@ -1,0 +1,24 @@
+# 根据手机号查已领取任务列表
+SELECT u.account_id, ut.task_name, ut.task_fee, ut.task_points, ut.updated_at
+FROM user_tasks AS ut
+         LEFT JOIN users as u ON u.id = ut.user_id
+WHERE u.account_id IN ('13736099249', '15658343193', '15888506958')
+  AND ut.status = 2
+  AND ut.deleted_at is null
+ORDER BY u.account_id;
+
+
+# 查指定商品待发货清单
+SELECT
+    op.product_name AS '商品名称',
+        op.count AS '数量',
+        o.delivery_contact_name AS '联系人',
+        o.delivery_contact_phone AS '联系电话',
+        CONCAT( o.delivery_province, o.delivery_city, o.delivery_district, o.delivery_town, o.delivery_address ) AS '收货地址'
+FROM
+    order_products AS op
+        LEFT JOIN orders AS o ON o.`status` = 1
+WHERE
+        op.original_product_id = 30
+  AND op.deleted_at IS NULL
+  AND o.deleted_at IS NULL;
