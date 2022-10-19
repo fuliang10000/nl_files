@@ -33,3 +33,19 @@ WHERE
 group by
     o.delivery_contact_phone;
 
+# 变更客户电话号码
+UPDATE users
+SET account_id = '19162746701',
+    `name` = '191*****701',
+    mobile = '19162746701'
+WHERE
+        account_id = '18030497961';
+UPDATE orders
+SET delivery_contact_phone = '19162746701'
+WHERE
+        user_id = 590;
+UPDATE delivery_addresses
+SET contact_phone = '19162746701'
+WHERE
+        user_id = 590;
+
