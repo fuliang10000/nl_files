@@ -49,3 +49,25 @@ SET contact_phone = '19162746701'
 WHERE
         user_id = 590;
 
+#替换图片地址为OSS
+UPDATE configurations SET config_value=replace(`config_value`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE files SET file_url=replace(`file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE order_products SET product_cover_image_url=replace(`product_cover_image_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE orders SET logo_file_url=replace(`logo_file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE product_detail_images SET file_url=replace(`file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE product_images SET file_url=replace(`file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE products SET cover_image_url=replace(`cover_image_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE store_applications SET business_license_file_url=replace(`business_license_file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE stores SET business_license_file_url=replace(`business_license_file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com'),logo_file_url=replace(`logo_file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com'),shop_sign_file_url=replace(`shop_sign_file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE users SET avatar_file_url=replace(`avatar_file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
+
+UPDATE withdraw_applications SET withdraw_file_url=replace(`withdraw_file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com'),tax_file_url=replace(`tax_file_url`,'https://wangzhe-web.nlwzxt333.com/storage','https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
