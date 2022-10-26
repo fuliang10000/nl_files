@@ -1,5 +1,4 @@
-#
-根据手机号查已领取任务列表
+-- 根据手机号查已领取任务列表
 SELECT u.account_id, ut.task_name, ut.task_fee, ut.task_points, ut.updated_at
 FROM user_tasks AS ut
          LEFT JOIN users as u ON u.id = ut.user_id
@@ -9,8 +8,7 @@ WHERE u.account_id IN ('13736099249', '15658343193', '15888506958')
 ORDER BY u.account_id;
 
 
-#
-查指定商品待发货清单
+-- 查指定商品待发货清单
 SELECT op.product_name AS '商品名称', sum(op.count) AS '数量', o.delivery_contact_name AS '联系人', o.delivery_contact_phone AS '联系电话', CONCAT(
     o.delivery_province,
         o.delivery_city,
@@ -28,8 +26,7 @@ WHERE op.original_product_id = 28
 group by
     o.delivery_contact_phone;
 
-#
-变更客户电话号码
+-- 变更客户电话号码
 UPDATE users
 SET account_id = '19162746701',
     `name`     = '191*****701',
@@ -42,7 +39,7 @@ UPDATE delivery_addresses
 SET contact_phone = '19162746701'
 WHERE user_id = 590;
 
-#替换图片地址为OSS
+-- 替换图片地址为OSS
 UPDATE configurations
 SET config_value=replace(`config_value`, 'https://wangzhe-web.nlwzxt333.com/storage',
                          'https://wangzhexitong.oss-cn-chengdu.aliyuncs.com');
