@@ -176,6 +176,7 @@ values (1784, 0, 550000, 0, '2022-10-27 17:08:56'),
        (779, 0, 110000, 0, '2022-10-19 18:08:56');
 
 -- 变更客户电话号码
+update users set invited_by_user_id=1773 where id=487;
 UPDATE users
 SET account_id = '18685917787',
     `name`     = '186*****787',
