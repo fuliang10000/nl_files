@@ -174,3 +174,31 @@ values (1784, 0, 550000, 0, '2022-10-27 17:08:56'),
        (1414, 0, 440000, 0, '2022-10-19 18:08:56'),
        (199, 0, 440000, 0, '2022-10-19 18:08:56'),
        (779, 0, 110000, 0, '2022-10-19 18:08:56');
+
+-- 变更客户电话号码
+UPDATE users
+SET account_id = '18685917787',
+    `name`     = '186*****787',
+    mobile     = '186*****787'
+WHERE account_id = '15528111260';
+UPDATE orders
+SET delivery_contact_phone = '18685917787',
+    delivery_province = '贵州省',
+    delivery_city = '遵义市',
+    delivery_district = '红花岗区',
+    delivery_town = '',
+    delivery_address = '区政府2小区'
+WHERE user_id = 487;
+UPDATE delivery_addresses
+SET contact_phone = '18685917787'
+WHERE user_id = 487;
+
+-- 变更推荐人，增加业绩
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 770000)
+where user_id in (1773, 1770, 590);
+
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (1773, 0, 770000, 0, CURRENT_TIMESTAMP),
+       (1770, 0, 770000, 0, CURRENT_TIMESTAMP),
+       (590, 0, 770000, 0, CURRENT_TIMESTAMP);
