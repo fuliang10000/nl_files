@@ -24,7 +24,7 @@ WHERE op.original_product_id = 28
   AND o.deleted_at IS NULL
   AND o.delivery_contact_phone != ''
 group by
-    o.delivery_contact_phone;
+    o.user_id;
 
 -- 变更客户电话号码
 UPDATE users
@@ -180,7 +180,7 @@ update users set invited_by_user_id=1773 where id=487;
 UPDATE users
 SET account_id = '18685917787',
     `name`     = '186*****787',
-    mobile     = '186*****787'
+    mobile     = '18685917787'
 WHERE account_id = '15528111260';
 UPDATE orders
 SET delivery_contact_phone = '18685917787',
@@ -203,3 +203,8 @@ insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_
 values (1773, 0, 770000, 0, CURRENT_TIMESTAMP),
        (1770, 0, 770000, 0, CURRENT_TIMESTAMP),
        (590, 0, 770000, 0, CURRENT_TIMESTAMP);
+
+-- 修改用户手机号
+update users set mobile=18685917787 where id=487;
+delete from users where id=1811;
+delete from authentications where user_id in(1811,487);
