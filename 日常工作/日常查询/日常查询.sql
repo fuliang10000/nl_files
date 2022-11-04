@@ -208,3 +208,8 @@ values (1773, 0, 770000, 0, CURRENT_TIMESTAMP),
 update users set mobile=18685917787 where id=487;
 delete from users where id=1811;
 delete from authentications where user_id in(1811,487);
+
+update users set invited_by_user_id=1084 where id=199;
+
+INSERT INTO app_versions ( `platform`, `version_number`, `build_number`, `download_url`, `file_name`, `changelog` )
+VALUES ( 0, '3.2.34', 22, 'https://wangzhexitong.oss-cn-chengdu.aliyuncs.com/app-test/wangzhe3.2.34.apk', 'wangzhe3.2.34.apk', '-' );
