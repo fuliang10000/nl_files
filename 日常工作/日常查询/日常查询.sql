@@ -213,3 +213,11 @@ update users set invited_by_user_id=1084 where id=199;
 
 INSERT INTO app_versions ( `platform`, `version_number`, `build_number`, `download_url`, `file_name`, `changelog` )
 VALUES ( 0, '3.2.34', 22, 'https://wangzhexitong.oss-cn-chengdu.aliyuncs.com/app-test/wangzhe3.2.34.apk', 'wangzhe3.2.34.apk', '-' );
+
+
+update orders set
+                  `delivery_contact_name`='李善琴',
+                  `delivery_contact_phone`='13451255180',
+                  `delivery_province`='湖北省',
+                  `delivery_address`='湖北省十堰市郧西县湖北口乡街'
+where `serial_number`='112491648163774464' and `user_id`=1862;
