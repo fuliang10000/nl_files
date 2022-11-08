@@ -221,3 +221,10 @@ update orders set
                   `delivery_province`='湖北省',
                   `delivery_address`='湖北省十堰市郧西县湖北口乡街'
 where `serial_number`='112491648163774464' and `user_id`=1862;
+
+INSERT INTO `configurations`
+VALUES
+    ( 17, 'five_star_last_reward_time', '{\"data\": \"2022-11-07 00:00:00\"}', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL ),
+    ( 18, 'elite_last_reward_time', '{\"data\": \"2022-11-07 00:00:00\"}', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL );
+
+update  `configurations` set `config_value`='{\"data\": \"2022-11-07 00:00:00\"}' where `config_key` in('one_star_last_reward_time', 'two_star_last_reward_time');
