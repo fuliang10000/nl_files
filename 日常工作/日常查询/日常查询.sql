@@ -228,3 +228,11 @@ VALUES
     ( 18, 'elite_last_reward_time', '{\"data\": \"2022-11-07 00:00:00\"}', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL );
 
 update  `configurations` set `config_value`='{\"data\": \"2022-11-07 00:00:00\"}' where `config_key` in('one_star_last_reward_time', 'two_star_last_reward_time');
+
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 1980000)
+where user_id in (325);
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (325, 0, 1980000, 0, CURRENT_TIMESTAMP);
+
+update user_expense_changes set created_at='2022-10-08 18:08:57' where id=12262;
