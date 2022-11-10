@@ -236,3 +236,13 @@ insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_
 values (325, 0, 1980000, 0, CURRENT_TIMESTAMP);
 
 update user_expense_changes set created_at='2022-10-08 18:08:57' where id=12262;
+
+-- 修改处理状态
+UPDATE withdraw_applications SET `status`=2,`rejection_comment`='系统驳回',`reviewed_at`=CURRENT_TIMESTAMP WHERE id=1627;
+-- 修改用户可提现金额
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+1300000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-1300000 WHERE user_id=9;
+-- 创建收支记录
+INSERT INTO user_income_and_expenditures (`user_id`, `type`,`action_type`, `amount_in_cents`, `redemption_point`, `user_balance_in_cents`, `user_redemption_point`, `additional_info`, `action_taken_at`, `created_at`)
+values (9, 0, 0, 1300000, 0, 1394300,6272, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+-- 创建余额明细
+INSERT INTO user_balance_changes (`user_id`, `changed_amount_in_cents`,`change_type`,`change_detail`, `created_at`) values (9,1300000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP);
