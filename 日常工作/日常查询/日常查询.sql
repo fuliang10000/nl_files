@@ -246,3 +246,47 @@ INSERT INTO user_income_and_expenditures (`user_id`, `type`,`action_type`, `amou
 values (9, 0, 0, 1300000, 0, 1394300,6272, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- 创建余额明细
 INSERT INTO user_balance_changes (`user_id`, `changed_amount_in_cents`,`change_type`,`change_detail`, `created_at`) values (9,1300000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP);
+
+-- 变更推荐人，增加业绩
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 110000)
+where user_id in (1872, 1774, 1561,1558,1503,1370,1767,1765,1696,1695,1693,1692,1414,199,1084,637,408,407,246,1784,1745,1743,1742,1732,1667,1241,779,71,9,1431,3);
+
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (1872, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1774, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1561, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1558, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1503, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1370, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1767, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1765, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1696, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1695, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1693, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1692, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1414, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (199, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1084, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (637, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (408, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (407, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (246, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1784, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1745, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1743, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1742, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1732, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1667, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1241, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (779, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (71, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (9, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (1431, 0, 110000, 0, CURRENT_TIMESTAMP),
+       (3, 0, 110000, 0, CURRENT_TIMESTAMP);
+
+insert into user_expenses
+    (`user_id`,`personal_expense_in_cents`,`team_expense_in_cents`,`created_at`)
+    values
+   (1872,0, 110000, CURRENT_TIMESTAMP),
+   (1774,0, 110000, CURRENT_TIMESTAMP);
