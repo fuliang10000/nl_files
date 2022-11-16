@@ -288,8 +288,12 @@ values (1872, 0, 110000, 0, CURRENT_TIMESTAMP),
 insert into user_expenses
     (`user_id`,`personal_expense_in_cents`,`team_expense_in_cents`,`created_at`)
     values
-   (1872,0, 110000, CURRENT_TIMESTAMP),
-   (1774,0, 110000, CURRENT_TIMESTAMP);
+   (1900,0, 9020096, '2022-11-06 00:00:00'),
+   (1901,0, 9020096, '2022-11-06 00:00:00');
+
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (1900, 0, 9020096, 0, '2022-11-06 00:00:00'),
+       (1901, 0, 9020096, 0, '2022-11-06 00:00:00');
 
 update orders set
                   `delivery_contact_name`='翟振杰',
