@@ -290,3 +290,13 @@ insert into user_expenses
     values
    (1872,0, 110000, CURRENT_TIMESTAMP),
    (1774,0, 110000, CURRENT_TIMESTAMP);
+
+update orders set
+                  `delivery_contact_name`='翟振杰',
+                  `delivery_contact_phone`='13905315279',
+                  `delivery_province`='山东省',
+                  `delivery_city`='济南市',
+                  `delivery_district`='市中区',
+                  `delivery_town`='舜玉路街道',
+                  `delivery_address`='舜耕路219号1号楼1单元1102室'
+where `id` in(258, 256, 255) and `user_id`=1862;
