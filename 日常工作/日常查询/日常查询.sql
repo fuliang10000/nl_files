@@ -306,3 +306,28 @@ update orders set
 where `id` in(258, 256, 255) and `user_id`=1862;
 
 update `users` set `password`='$2y$10$Sofsos91pqasmsNEZ6vK9ujqW5GMpseYYzVg52Bk6pTUpNTGgzSVy' where account_id='18732445870';
+
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 3300025)
+where user_id in (1910);
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (1910, 0, 3300025, 0, '2022-11-06 00:00:00');
+
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (1849, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (1836, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (1834, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (1822, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (1567, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (1436, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (890, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (364, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (251, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (84, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (66, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (9, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (1431, 0, 110002, 0, '2022-11-17 13:24:00'),
+       (3, 0, 110002, 0, '2022-11-17 13:24:00');
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 110002)
+where user_id in (1849,1836,1834,1822,1567,1436,890,364,251,84,66,9,1431,3);
