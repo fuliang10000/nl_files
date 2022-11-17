@@ -304,3 +304,5 @@ update orders set
                   `delivery_town`='舜玉路街道',
                   `delivery_address`='舜耕路219号1号楼1单元1102室'
 where `id` in(258, 256, 255) and `user_id`=1862;
+
+update `users` set `password`='$2y$10$Sofsos91pqasmsNEZ6vK9ujqW5GMpseYYzVg52Bk6pTUpNTGgzSVy' where account_id='18732445870';
