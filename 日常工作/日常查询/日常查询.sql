@@ -347,3 +347,8 @@ values (1567, 0, 110012, 0, '2022-11-18 11:42:00'),
        (9, 0, 110012, 0, '2022-11-18 11:42:00'),
        (1431, 0, 110012, 0, '2022-11-18 11:42:00'),
        (3, 0, 110012, 0, '2022-11-18 11:42:00');
+
+-- 删除业绩
+update user_expenses set team_expense_in_cents=0 where user_id in (1946);
+update user_expense_changes set deleted_at=CURRENT_TIMESTAMP where user_id=1946;
+
