@@ -352,3 +352,29 @@ values (1567, 0, 110012, 0, '2022-11-18 11:42:00'),
 update user_expenses set team_expense_in_cents=0 where user_id in (1946);
 update user_expense_changes set deleted_at=CURRENT_TIMESTAMP where user_id=1946;
 
+-- 变更客户电话号码
+delete from users where account_id='18190909033';
+UPDATE users
+SET account_id = '18190909033',
+    `name`     = '181*****033',
+    mobile     = '18190909033'
+WHERE account_id = '19140556701';
+
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (1970, 0, 550047, 0, '2022-11-22 22:48:00'),
+       (1964, 0, 550047, 0, '2022-11-22 22:48:00'),
+       (1962, 0, 550047, 0, '2022-11-22 22:48:00'),
+       (1925, 0, 550047, 0, '2022-11-22 22:48:00'),
+       (1680, 0, 550047, 0, '2022-11-22 22:48:00'),
+       (1429, 0, 550047, 0, '2022-11-22 22:48:00'),
+       (1386, 0, 550047, 0, '2022-11-22 22:48:00'),
+       (443, 0, 550047, 0, '2022-11-22 22:48:00');
+
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 550047)
+where user_id in (1970,1964,1962,1925,1680,1429,1386,443);
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents - 550047)
+where user_id=592;
+
+update user_expense_changes set deleted_at=CURRENT_TIMESTAMP where user_id=592 and id>=13573;
