@@ -382,3 +382,20 @@ update user_expense_changes set deleted_at=CURRENT_TIMESTAMP where user_id=592 a
 update user_balances set total_balance_in_cents=1245500,
                          withdrawn_balance_in_cents=340000,
                          remaining_balance_in_cents=879300 where user_id=1185;
+
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 9350067)
+where user_id in (1987,1394,737,573,1608,568,428,38,15,7,6,3);
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (1987, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (1394, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (737, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (573, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (1608, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (568, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (428, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (38, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (15, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (7, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (6, 0, 9350067, 0, '2022-11-24 14:18:00'),
+       (3, 0, 9350067, 0, '2022-11-24 14:18:00');
