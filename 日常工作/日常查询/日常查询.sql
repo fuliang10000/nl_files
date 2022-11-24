@@ -378,3 +378,7 @@ set team_expense_in_cents=(team_expense_in_cents - 550047)
 where user_id=592;
 
 update user_expense_changes set deleted_at=CURRENT_TIMESTAMP where user_id=592 and id>=13573;
+
+update user_balances set total_balance_in_cents=1245500,
+                         withdrawn_balance_in_cents=340000,
+                         remaining_balance_in_cents=879300 where user_id=1185;
