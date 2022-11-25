@@ -399,3 +399,10 @@ values (1987, 0, 9350067, 0, '2022-11-24 14:18:00'),
        (7, 0, 9350067, 0, '2022-11-24 14:18:00'),
        (6, 0, 9350067, 0, '2022-11-24 14:18:00'),
        (3, 0, 9350067, 0, '2022-11-24 14:18:00');
+
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 21560170)
+where user_id in (1146);
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (1146, 0, 21560170, 0, CURRENT_TIMESTAMP);
+
