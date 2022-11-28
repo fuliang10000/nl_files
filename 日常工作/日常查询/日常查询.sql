@@ -442,3 +442,14 @@ insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_
 values (1770, 0, 53777490, 0, '2022-11-20 20:14:00'),
        (590, 0, 53777490, 0, '2022-11-20 20:14:00'),
        (325, 0, 53777490, 0, '2022-11-20 20:14:00');
+
+UPDATE users
+SET account_id = '19383957767',
+    `name`     = '193*****767',
+    mobile     = '19383957767'
+WHERE account_id = '19162746701';
+UPDATE users
+SET account_id = '19383137767',
+    `name`     = '193*****767',
+    mobile     = '19383137767'
+WHERE account_id = '18628398999';
