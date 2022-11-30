@@ -464,3 +464,6 @@ SET account_id = '19140556701',
     `name`     = '191*****701',
     mobile     = '19140556701'
 WHERE account_id = '18280260351';
+
+-- 初始化用户名
+UPDATE `users` SET `username`=CONCAT('nl',LPAD(`id`,7,0)) WHERE `username`='';
