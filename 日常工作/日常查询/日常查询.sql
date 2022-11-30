@@ -453,3 +453,14 @@ SET account_id = '19383137767',
     `name`     = '193*****767',
     mobile     = '19383137767'
 WHERE account_id = '18628398999';
+
+UPDATE users
+SET account_id = '13808290300',
+    `name`     = '138*****300',
+    mobile     = '13808290300'
+WHERE account_id = '18181646202';
+UPDATE users
+SET account_id = '19140556701',
+    `name`     = '191*****701',
+    mobile     = '19140556701'
+WHERE account_id = '18280260351';
