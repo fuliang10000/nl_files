@@ -467,3 +467,31 @@ WHERE account_id = '18280260351';
 
 -- 初始化用户名
 UPDATE `users` SET `username`=CONCAT('nl',LPAD(`id`,7,0)) WHERE `username`='';
+
+update payments set `payment_status`=1,`paid_at`='2022-12-01 13:56:53',`paid_with_wechat_amount_in_cents`=110013 where out_trade_no='121248156628287488';
+
+update orders set status=1,`paid_at`='2022-12-01 13:56:53' where out_trade_no='121248156628287488';
+
+update raffle_tickets set is_enabled=1 where out_trade_no='121248156628287488';
+
+insert into user_income_and_expenditures (`user_id`,`type`,`action_type`,`amount_in_cents`,`user_redemption_point`,`user_balance_in_cents`,`additional_info`,`action_taken_at`,`created_at`)
+                                values (2168,1,2,'-110000',100,0,'{"store_name": "王者系统", "product_name": "王者系统 - 纳零·参麦双果植物固体饮料（呼吸产品）等1件商品", "order_serial_number": "121248156611510272"}',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+insert into user_expenses (`user_id`,`personal_expense_in_cents`,`team_expense_in_cents`,`created_at`) values (2168,110013,0,CURRENT_TIMESTAMP);
+insert into user_expense_changes (`user_id`,`personal_expense_in_cents`,`team_expense_in_cents`,`type`,`created_at`) values (2168,110013,0,0,CURRENT_TIMESTAMP);
+
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 110013)
+where user_id in (569,37,15,7,6,3);
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (569, 0, 110013, 0, CURRENT_TIMESTAMP),
+       (37, 0, 110013, 0, CURRENT_TIMESTAMP),
+       (15, 0, 110013, 0, CURRENT_TIMESTAMP),
+       (7, 0, 110013, 0, CURRENT_TIMESTAMP),
+       (6, 0, 110013, 0, CURRENT_TIMESTAMP),
+       (3, 0, 110013, 0, CURRENT_TIMESTAMP);
+
+insert into user_activity_orders (`product_id`,`order_id`,`user_id`,`total_amount_in_cents`,`created_at`,`updated_at`) values (28,2682,2168,110000,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+insert into user_redemption_points (`user_id`,`total_point`,`used_point`,`remaining_point`,`created_at`) values (2168,100,0,100,CURRENT_TIMESTAMP);
+insert into user_redemption_point_changes (`user_id`,`changed_point`,`change_detail`,`created_at`) values (2168,100,'{"description": "活动专区首单赠送积分"}',CURRENT_TIMESTAMP);
+
+update user_relationships set is_activated=1 where user_id=2168;
