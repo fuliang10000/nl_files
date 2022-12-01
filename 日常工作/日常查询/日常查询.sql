@@ -495,3 +495,22 @@ insert into user_redemption_points (`user_id`,`total_point`,`used_point`,`remain
 insert into user_redemption_point_changes (`user_id`,`changed_point`,`change_detail`,`created_at`) values (2168,100,'{"description": "活动专区首单赠送积分"}',CURRENT_TIMESTAMP);
 
 update user_relationships set is_activated=1 where user_id=2168;
+
+update products set `sales`=`sales`+1 where id=28;
+update balance_summaries set `expense_in_cents`=`expense_in_cents`+110000 where `summary_date`='2022-12-01 00:00:00';
+update store_incomes set
+                         `sales_amount_in_cents`=`sales_amount_in_cents`+110000,
+                         `activity_product_sales_amount_in_cents`=`activity_product_sales_amount_in_cents`+110000,
+                         `income_in_cents`=`income_in_cents`+110000,
+                         `activity_product_income_in_cents`=`activity_product_income_in_cents`+110000 where store_id=1;
+
+update store_daily_incomes set `sales_amount_in_cents`=`sales_amount_in_cents`+110000,
+                               `activity_product_sales_amount_in_cents`=`activity_product_sales_amount_in_cents`+110000,
+                               `income_in_cents`=`income_in_cents`+110000,
+                               `activity_product_income_in_cents`=`activity_product_income_in_cents`+110000 where `summary_date`='2022-12-01 00:00:00';
+
+insert into pending_user_tasks
+(`user_id`,`type`,`task_name`,`task_fee`,`task_points`,`computed_task_fee`,`computed_task_points`,`status`,`summary_period`,`store_id`,`coefficient`,`store_increased_income_in_cents`,`team_increased_expense_in_cents`,`release_type`,`created_at`)
+values
+(37,4,'运营中心任务',4700,8,4700,8,0,'2022-12-01 13:56',1,'5%',110013,110013,0,CURRENT_TIMESTAMP),
+(15,3,'超级管家任务',4700,8,4700,8,0,'2022.12.01 13:56',1,'5%',110013,110013,0,CURRENT_TIMESTAMP);
