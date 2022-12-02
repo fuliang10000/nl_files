@@ -514,3 +514,82 @@ insert into pending_user_tasks
 values
 (37,4,'运营中心任务',4700,8,4700,8,0,'2022-12-01 13:56',1,'5%',110013,110013,0,CURRENT_TIMESTAMP),
 (15,3,'超级管家任务',4700,8,4700,8,0,'2022.12.01 13:56',1,'5%',110013,110013,0,CURRENT_TIMESTAMP);
+
+-- 修改处理状态
+UPDATE withdraw_applications SET `status`=2,`rejection_comment`='银行卡号有误',`reviewed_at`=CURRENT_TIMESTAMP WHERE id in(1220,1394,1690,1369,1628);
+UPDATE withdraw_applications SET `status`=2,`rejection_comment`='年龄不符合用工需求16-60岁',`reviewed_at`=CURRENT_TIMESTAMP WHERE id in(1563,1356,1355,1307,1298,1504,1118,1093);
+
+-- 修改用户可提现金额
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=1219;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+50000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-50000 WHERE user_id=1092;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+20000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-20000 WHERE user_id=154;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+40000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-40000 WHERE user_id=408;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=377;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=559;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=131;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=185;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+40000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-40000 WHERE user_id=1624;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+20000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-20000 WHERE user_id=1259;
+
+-- 创建余额明细
+INSERT INTO user_balance_changes (`user_id`, `changed_amount_in_cents`,`change_type`,`change_detail`, `created_at`)
+values (1219,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(1092,50000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(154,20000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(408,40000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(377,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(559,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(131,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(185,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(1624,40000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+(1259,20000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP);
+
+-- 创建收支记录
+INSERT INTO user_income_and_expenditures (`user_id`, `type`,`action_type`, `amount_in_cents`, `redemption_point`, `user_balance_in_cents`, `user_redemption_point`, `additional_info`, `action_taken_at`, `created_at`)
+values (1219, 0, 0, 10000, 0, 19600,107, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (1092, 0, 0, 50000, 0, 60800,178, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (154, 0, 0, 20000, 0, 34700,184, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (408, 0, 0, 40000, 0, 70200,208, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (377, 0, 0, 10000, 0, 21000,121, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (559, 0, 0, 10000, 0, 11100,111, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (131, 0, 0, 10000, 0, 18000,250, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (185, 0, 0, 10000, 0, 12900,230, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (1624, 0, 0, 40000, 0, 46500,147, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (1259, 0, 0, 20000, 0, 39600,135, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+update user_balances set `withdrawn_balance_in_cents`=10000 WHERE user_id=1219;
+
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+20000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=154;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+40000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-20000 WHERE user_id=408;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=377;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=559;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=131;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+10000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-10000 WHERE user_id=185;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+40000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-40000 WHERE user_id=1624;
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+20000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-20000 WHERE user_id=1259;
+
+-- 创建余额明细
+INSERT INTO user_balance_changes (`user_id`, `changed_amount_in_cents`,`change_type`,`change_detail`, `created_at`)
+values (1219,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (1092,50000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (154,20000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (408,40000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (377,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (559,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (131,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (185,10000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (1624,40000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP),
+       (1259,20000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP);
+
+-- 创建收支记录
+INSERT INTO user_income_and_expenditures (`user_id`, `type`,`action_type`, `amount_in_cents`, `redemption_point`, `user_balance_in_cents`, `user_redemption_point`, `additional_info`, `action_taken_at`, `created_at`)
+values (1219, 0, 0, 10000, 0, 19600,107, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (1092, 0, 0, 50000, 0, 60800,178, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (154, 0, 0, 20000, 0, 34700,184, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (408, 0, 0, 40000, 0, 70200,208, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (377, 0, 0, 10000, 0, 21000,121, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (559, 0, 0, 10000, 0, 11100,111, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (131, 0, 0, 10000, 0, 18000,250, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (185, 0, 0, 10000, 0, 12900,230, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (1624, 0, 0, 40000, 0, 46500,147, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (1259, 0, 0, 20000, 0, 39600,135, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
