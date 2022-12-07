@@ -593,3 +593,14 @@ values (1219, 0, 0, 10000, 0, 19600,107, '{"comment": "提现申请被驳回"}',
        (185, 0, 0, 10000, 0, 12900,230, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        (1624, 0, 0, 40000, 0, 46500,147, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        (1259, 0, 0, 20000, 0, 39600,135, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- 修改处理状态
+UPDATE withdraw_applications SET `status`=2,`rejection_comment`='年龄不符合用工需求16-60岁',`reviewed_at`=CURRENT_TIMESTAMP WHERE id in(2326,2332,2333);
+-- 修改用户可提现金额
+UPDATE user_balances SET `remaining_balance_in_cents`=`remaining_balance_in_cents`+270000,`withdrawn_balance_in_cents`=`withdrawn_balance_in_cents`-270000 WHERE user_id=643;
+-- 创建余额明细
+INSERT INTO user_balance_changes (`user_id`, `changed_amount_in_cents`,`change_type`,`change_detail`, `created_at`)
+values (643,270000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTAMP);
+-- 创建收支记录
+INSERT INTO user_income_and_expenditures (`user_id`, `type`,`action_type`, `amount_in_cents`, `redemption_point`, `user_balance_in_cents`, `user_redemption_point`, `additional_info`, `action_taken_at`, `created_at`)
+values (643, 0, 0, 270000, 0, 298000,510, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
