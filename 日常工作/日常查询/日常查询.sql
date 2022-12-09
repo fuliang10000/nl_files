@@ -604,3 +604,6 @@ values (643,270000,0,'{"description": "提现申请被驳回"}', CURRENT_TIMESTA
 -- 创建收支记录
 INSERT INTO user_income_and_expenditures (`user_id`, `type`,`action_type`, `amount_in_cents`, `redemption_point`, `user_balance_in_cents`, `user_redemption_point`, `additional_info`, `action_taken_at`, `created_at`)
 values (643, 0, 0, 270000, 0, 298000,510, '{"comment": "提现申请被驳回"}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+update users set `name`='153*****727' where `account_id`='15397622727';
+update users set `name`='191*****312' where `account_id`='19196955312';
