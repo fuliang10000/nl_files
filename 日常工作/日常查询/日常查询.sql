@@ -607,3 +607,7 @@ values (643, 0, 0, 270000, 0, 298000,510, '{"comment": "提现申请被驳回"}'
 
 update users set `name`='153*****727' where `account_id`='15397622727';
 update users set `name`='191*****312' where `account_id`='19196955312';
+
+update sub_user_applications set deleted_at=CURRENT_TIMESTAMP where id_card='431221198010130010';
+update users set deleted_at=CURRENT_TIMESTAMP where id_card='431221198010130010' and id!=814;
+update users set id_card='' where id=814;
