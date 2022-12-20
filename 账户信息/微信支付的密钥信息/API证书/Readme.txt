@@ -1,0 +1,3 @@
+商户 API 私钥：apiclient_key.pem
+
+微信支付平台证书：wechatpay_7C43B88DC5F429F178BB66C8A0181DC665F83BFD.pem
