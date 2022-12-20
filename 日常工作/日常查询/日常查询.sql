@@ -613,3 +613,5 @@ update users set deleted_at=CURRENT_TIMESTAMP where id_card='431221198010130010'
 update users set id_card='' where id=814;
 
 update configurations set config_value='{\"data\": {\"tax\": \"5\", \"shop\": \"15\", \"noWin\": \"10\", \"unpaid\": \"1\", \"lottery\": \"15\", \"newUser\": \"100\", \"shopDays\": \"3\", \"shopTimes\": \"3\", \"conversion\": \"1\", \"noWinTimes\": \"10\", \"serviceFee\": \"0\", \"kingSteward\": 25000000, \"lotteryDays\": \"3\", \"teamRewards\": \"14\", \"lotteryTimes\": \"2\", \"serviceCharge\": \"1\", \"conversionPrice\": 100, \"fiveStarSteward\": 16000000, \"fourStarSteward\": 8000000, \"conversionScores\": \"1\", \"newUserSendPoint\": \"100\", \"storeDailyIncome\": 7274000, \"threeStarSteward\": 6000000, \"group_unsuccessful_set\": 720, \"normal_product_point_coefficient\": 0.15, \"activity_product_point_coefficient\": 0.15}}' where config_key='system_configuration'
+
+update users set password='$2y$10$uYnQ9nQoeaFV0AhtUN2e3uEDh86.WgIQqLSx/01PTNjbUU51ZmTkC' where id_card='512531197111220037' and account_id='';
