@@ -618,13 +618,17 @@ update users set password='$2y$10$uYnQ9nQoeaFV0AhtUN2e3uEDh86.WgIQqLSx/01PTNjbUU
 
 SELECT
     uec.user_id,
-    u.account_id,
-    SUM( uec.personal_expense_in_cents / 100 ) AS personal_expense,
-    SUM( uec.team_expense_in_cents / 100 ) AS team_expense
+    u.account_id AS '手机号',
+        u.username AS '用户名',
+        SUM( uec.personal_expense_in_cents / 100 ) AS '个人业绩',
+        SUM( uec.team_expense_in_cents / 100 ) AS '市场业绩'
 FROM
     user_expense_changes AS uec
-        LEFT JOIN users AS u ON u.id=uec.user_id
+        LEFT JOIN users AS u ON u.id = uec.user_id
 WHERE
         uec.created_at >= '2022-12-11'
 GROUP BY
-    uec.user_id HAVING personal_expense>='50000';
+    uec.user_id
+HAVING
+        个人业绩 >= '50000';
+
