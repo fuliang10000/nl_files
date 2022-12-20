@@ -632,3 +632,4 @@ GROUP BY
 HAVING
         个人业绩 >= '50000';
 
+SELECT u.id,u.username,u.account_id FROM user_membership_roles AS umr LEFT JOIN users AS u ON u.id=umr.user_id WHERE umr.membership_role_id=2 AND umr.created_at>='2022-12-11' ORDER BY u.id;
