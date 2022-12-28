@@ -633,3 +633,21 @@ HAVING
         个人业绩 >= '50000';
 
 SELECT u.id,u.username,u.account_id FROM user_membership_roles AS umr LEFT JOIN users AS u ON u.id=umr.user_id WHERE umr.membership_role_id=2 AND umr.created_at>='2022-12-11' ORDER BY u.id;
+
+-- 复购区成本价调整
+UPDATE `products` SET `cost_price_in_cents`=`cost_price_in_cents`+`price_in_cents`*0.1 WHERE `category_id`=3;
+
+-- 增加业绩
+update user_expenses
+set team_expense_in_cents=(team_expense_in_cents + 110000)
+where user_id in (15, 7, 6, 3);
+update user_expenses
+set personal_expense_in_cents=(personal_expense_in_cents + 110000)
+where user_id in (680);
+insert into user_expense_changes (`user_id`, `personal_expense_in_cents`, `team_expense_in_cents`, `type`, `created_at`)
+values (15, 0, 110000, 0, '2022-08-27 20:03:11'),
+       (7, 0, 110000, 0, '2022-08-27 20:03:11'),
+       (6, 0, 110000, 0, '2022-08-27 20:03:11'),
+       (3, 0, 110000, 0, '2022-08-27 20:03:11'),
+       (192, 0, 110000, 0, '2022-08-27 20:03:11'),
+       (680, 110000, 0, 0, '2022-08-27 20:03:11');
