@@ -669,3 +669,6 @@ SELECT ur.user_id,ur.lft FROM user_relationships AS ur WHERE ur.user_id IN(SELEC
 -- 573,737,1146,1608
 
 SELECT u.username,u.account_id,ub.remaining_balance_in_cents/100 AS '可提现余额',wa.user_name FROM user_balances AS ub LEFT JOIN users AS u ON u.id=ub.user_id LEFT JOIN withdraw_applications AS wa ON wa.user_id=ub.user_id WHERE ub.user_id IN(SELECT user_id FROM user_relationships WHERE direct_superior_user_id=1608 OR direct_superior_user_id IN(SELECT user_id FROM user_relationships WHERE direct_superior_user_id=1608)) GROUP BY ub.user_id;
+
+DELETE FROM user_authentications WHERE user_id=1164;
+UPDATE users SET auth_state=0 WHERE id=1164;
