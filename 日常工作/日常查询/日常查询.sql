@@ -672,3 +672,7 @@ SELECT u.username,u.account_id,ub.remaining_balance_in_cents/100 AS '可提现�
 
 DELETE FROM user_authentications WHERE user_id=1164;
 UPDATE users SET auth_state=0 WHERE id=1164;
+
+UPDATE product_categories SET `name`='会员福利区',`abbreviation`='会员福利区' WHERE id=3;
+UPDATE products SET `category_name`='会员福利区',`category_name_abbr`='会员福利区' WHERE category_id=3 AND category_name='复购区';
+UPDATE order_products SET product_category_name='会员福利区',product_category_name_abbr='会员福利区' WHERE product_category_name='复购区';
