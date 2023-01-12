@@ -682,7 +682,6 @@ SELECT
     id,
     shipping_serial_number,
     order_id,
-    shipping_company_name,
     CASE
         shipping_company_name
         WHEN '极兔物流' THEN
