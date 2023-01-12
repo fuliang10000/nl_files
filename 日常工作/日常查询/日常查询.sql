@@ -677,7 +677,7 @@ UPDATE product_categories SET `name`='会员福利区',`abbreviation`='会员福
 UPDATE products SET `category_name`='会员福利区',`category_name_abbr`='会员福利区' WHERE category_id=3 AND category_name='复购区';
 UPDATE order_products SET product_category_name='会员福利区',product_category_name_abbr='会员福利区' WHERE product_category_name='复购区';
 
-INSERT INTO logistics ( `delivery_package_id`, `logistic_code`, `order_code`, `shipper_code`, `state`, `state_ex`, `traces` )
+INSERT INTO logistics ( `delivery_package_id`, `logistic_code`, `order_code`, `shipper_code`, `state`, `state_ex`, `traces`, `updated_at` )
 SELECT
     id,
     shipping_serial_number,
@@ -699,7 +699,8 @@ SELECT
         END 'shipper_code',
         0,
     0,
-    '[]'
+    '[]',
+    CURRENT_TIMESTAMP
 FROM
     delivery_packages
 WHERE
