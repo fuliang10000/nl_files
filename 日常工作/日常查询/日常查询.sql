@@ -676,3 +676,33 @@ UPDATE users SET auth_state=0 WHERE id=1164;
 UPDATE product_categories SET `name`='会员福利区',`abbreviation`='会员福利区' WHERE id=3;
 UPDATE products SET `category_name`='会员福利区',`category_name_abbr`='会员福利区' WHERE category_id=3 AND category_name='复购区';
 UPDATE order_products SET product_category_name='会员福利区',product_category_name_abbr='会员福利区' WHERE product_category_name='复购区';
+
+INSERT INTO logistics ( `delivery_package_id`, `logistic_code`, `order_code`, `shipper_code`, `state`, `state_ex`, `traces` )
+SELECT
+    id,
+    shipping_serial_number,
+    order_id,
+    shipping_company_name,
+    CASE
+        shipping_company_name
+        WHEN '极兔物流' THEN
+            'JTSD'
+        WHEN '极兔快递' THEN
+            'JTSD'
+        WHEN '京东物流' THEN
+            'JD'
+        WHEN '京东快递' THEN
+            'JD'
+        WHEN '中通速运' THEN
+            'ZTO'
+        WHEN '中通快递' THEN
+            'ZTO'
+        END 'shipper_code',
+        0,
+    0,
+    '[]'
+FROM
+    delivery_packages
+WHERE
+    deleted_at IS NULL
+  AND shipping_company_name IN ( '极兔物流', '极兔快递', '京东物流', '京东快递', '中通快递', '中通速运' );
