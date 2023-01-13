@@ -693,7 +693,7 @@ SELECT
         WHEN '京东快递' THEN
             'JD'
         WHEN '中通速运' THEN
-            'ZTO'
+            'ZTOKY'
         WHEN '中通快递' THEN
             'ZTO'
         END 'shipper_code',
