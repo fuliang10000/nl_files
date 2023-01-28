@@ -706,3 +706,31 @@ FROM
 WHERE
     deleted_at IS NULL
   AND shipping_company_name IN ( '极兔物流', '极兔快递', '京东物流', '京东快递', '中通快递', '中通速运' );
+
+
+复购积分充值=119
+提现余额充值=470
+积分充值=1706
+
+DELETE FROM raffle_tickets WHERE user_id=33;
+insert into user_point_pools (`user_id`, `store_id`, `pool_type`, `total_point`, `delivered_point`, `remaining_point`)
+values (33, 1, 1, 2200, 494, 1706);
+insert into user_point_pool_changes (`user_id`, `store_id`, `pool_type`, `changed_point`, `change_detail`)
+values (33, 1, 1, -494, '{"description": "发放积分"}');
+
+SELECT op.product_name AS '商品名称', op.count AS '数量', u.account_id AS '下单人手机号', u.username AS  '下单人王者号', o.delivery_contact_name AS '收货人', o.delivery_contact_phone AS '收货人电话', CONCAT(
+    o.delivery_province,
+        o.delivery_city,
+        o.delivery_district,
+        o.delivery_town,
+        o.delivery_address
+    ) AS '收货地址',
+        o.created_at AS '下单时间'
+FROM order_products AS op
+         LEFT JOIN orders AS o ON o.id = op.order_id
+         LEFT JOIN users AS u ON u.id=o.user_id
+WHERE op.original_product_id = 28
+  AND o.`status` = 1
+  AND op.deleted_at IS NULL
+  AND o.deleted_at IS NULL
+  AND o.delivery_contact_phone != '' AND o.delivery_contact_name='闻乙孺';
