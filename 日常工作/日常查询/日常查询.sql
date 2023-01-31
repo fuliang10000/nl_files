@@ -734,3 +734,25 @@ WHERE op.original_product_id = 28
   AND op.deleted_at IS NULL
   AND o.deleted_at IS NULL
   AND o.delivery_contact_phone != '' AND o.delivery_contact_name='闻乙孺';
+
+SELECT
+    u.account_id AS '手机号',
+        u.is_marketing_center AS '运营中心',
+        u.is_super_member AS '超级管家',
+        u.is_star_member AS '星级管家',
+        ur.direct_superior_user_id,
+    COUNT(DISTINCT ur.user_id) AS total_recommend,
+    MIN( o.created_at ) AS '下单时间',
+        o.delivery_province AS '省份',
+        ( ub.total_balance_in_cents / 100 ) AS '个人总收入'
+FROM
+    user_relationships AS ur
+        LEFT JOIN users AS u ON u.id = ur.direct_superior_user_id
+        LEFT JOIN orders AS o ON o.user_id = ur.direct_superior_user_id AND o.paid_at IS NOT NULL
+        LEFT JOIN user_balances AS ub ON ub.user_id = ur.direct_superior_user_id
+WHERE
+        ur.is_activated = 1
+GROUP BY
+    ur.direct_superior_user_id
+HAVING
+        total_recommend >= 10 ORDER BY o.delivery_province;
