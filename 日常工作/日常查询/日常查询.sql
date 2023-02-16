@@ -756,3 +756,8 @@ GROUP BY
     ur.direct_superior_user_id
 HAVING
         total_recommend >= 10 ORDER BY o.delivery_province;
+
+update orders set deleted_at=CURRENT_TIMESTAMP where id=3744;
+update user_expense_changes set deleted_at=CURRENT_TIMESTAMP where id in(24861,24862,24863,24864,24865);
+update user_expenses set personal_expense_in_cents=personal_expense_in_cents-19500 where user_id=590;
+update user_expenses set team_expense_in_cents=team_expense_in_cents-19500 where user_id in(325,9,1431,3);
