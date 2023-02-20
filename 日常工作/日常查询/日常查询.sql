@@ -761,3 +761,88 @@ update orders set deleted_at=CURRENT_TIMESTAMP where id=3744;
 update user_expense_changes set deleted_at=CURRENT_TIMESTAMP where id in(24861,24862,24863,24864,24865);
 update user_expenses set personal_expense_in_cents=personal_expense_in_cents-19500 where user_id=590;
 update user_expenses set team_expense_in_cents=team_expense_in_cents-19500 where user_id in(325,9,1431,3);
+
+-- 2023-02-20
+UPDATE `user_tasks` SET task_action_id=452 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-20%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=453 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-20%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=451 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-20%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=450 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-20%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=454 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-20%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=455 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-20%' AND task_id=12;
+
+-- 2023-02-19
+UPDATE `user_tasks` SET task_action_id=446 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-19%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=447 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-19%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=445 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-19%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=444 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-19%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=448 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-19%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=449 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-19%' AND task_id=12;
+
+-- 2023-02-18
+UPDATE `user_tasks` SET task_action_id=440 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-18%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=441 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-18%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=439 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-18%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=438 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-18%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=442 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-18%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=443 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-18%' AND task_id=12;
+
+-- 2023-02-17
+UPDATE `user_tasks` SET task_action_id=434 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-17%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=435 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-17%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=433 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-17%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=432 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-17%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=436 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-17%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=437 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-17%' AND task_id=12;
+
+-- 2023-02-16
+UPDATE `user_tasks` SET task_action_id=428 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-16%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=429 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-16%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=427 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-16%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=426 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-16%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=430 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-16%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=431 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-16%' AND task_id=12;
+
+-- 2023-02-15
+UPDATE `user_tasks` SET task_action_id=416 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-15%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=417 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-15%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=415 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-15%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=424 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-15%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=418 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-15%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=419 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-15%' AND task_id=12;
+
+-- 2023-02-14
+UPDATE `user_tasks` SET task_action_id=410 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-14%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=411 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-14%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=409 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-14%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=423 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-14%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=412 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-14%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=413 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-14%' AND task_id=12;
+
+-- 2023-02-13
+UPDATE `user_tasks` SET task_action_id=404 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-13%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=421 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-13%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=403 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-13%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=402 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-13%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=422 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-13%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=407 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-13%' AND task_id=12;
+
+-- 2023-02-12
+UPDATE `user_tasks` SET task_action_id=398 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-12%' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=399 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-12%' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=420 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-12%' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=396 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-12%' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=400 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-12%' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=401 WHERE `status` IN ( 0, 1 ) AND created_at LIKE '2023-02-12%' AND task_id=12;
+
+-- 2023-02-11之前
+UPDATE `user_tasks` SET task_action_id=392 WHERE `status` IN ( 0, 1 ) AND created_at <= '2023-02-11' AND task_id=1;
+UPDATE `user_tasks` SET task_action_id=393 WHERE `status` IN ( 0, 1 ) AND created_at <= '2023-02-11' AND task_id=2;
+UPDATE `user_tasks` SET task_action_id=391 WHERE `status` IN ( 0, 1 ) AND created_at <= '2023-02-11' AND task_id=3;
+UPDATE `user_tasks` SET task_action_id=390 WHERE `status` IN ( 0, 1 ) AND created_at <= '2023-02-11' AND task_id=4;
+UPDATE `user_tasks` SET task_action_id=394 WHERE `status` IN ( 0, 1 ) AND created_at <= '2023-02-11' AND task_id=11;
+UPDATE `user_tasks` SET task_action_id=395 WHERE `status` IN ( 0, 1 ) AND created_at <= '2023-02-11' AND task_id=12;
+
+-- 星级管家任务
+UPDATE `user_tasks` SET task_action_id=227 WHERE `status` IN ( 0, 1 ) AND task_id=9;
+UPDATE `user_tasks` SET task_action_id=226 WHERE `status` IN ( 0, 1 ) AND task_id=10;
+
