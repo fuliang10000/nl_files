@@ -846,3 +846,8 @@ UPDATE `user_tasks` SET task_action_id=395 WHERE `status` IN ( 0, 1 ) AND create
 UPDATE `user_tasks` SET task_action_id=227 WHERE `status` IN ( 0, 1 ) AND task_id=9;
 UPDATE `user_tasks` SET task_action_id=226 WHERE `status` IN ( 0, 1 ) AND task_id=10;
 
+INSERT INTO tasks ( `type`, `name`, `service_fees`, `relevance_keeper` )
+VALUES
+    ( 4, '个人业绩升级任务', 0, '[]' ),
+    ( 5, '团队人数升级任务', 0, '[]' ),
+    ( 6, '团队业绩升级任务', 0, '[]' );
